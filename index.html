@@ -4,7 +4,7 @@
   <head>
     <title>Guessing Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="../../assets/js/html5shiv.js"></script>
@@ -16,12 +16,20 @@
       <header class="page-header">
         <h3>Guessing Game</h3>
       </header>
-      <input type="text" class="form control"> 
-    </br></br>
-      <div class="btn-toolbar">
-        <button type="button" class="btn btn-primary">Submit Guess</button>
-        <button type="button" class="btn btn-info">Get a Hint</button>
-      </div>
+      <div class="pagination-centered">
+      <form role="form" id="guessForm">
+          <input type="text" class="form control">  
+        <!---<div class="btn-toolbar pagination-centered"-->
+            <div class="btn-toolbar">
+              <button type="button" class="sbutton embossed-link">Submit Guess</button>
+    </form>
+          <button type="submit" class="sbutton embossed-link">Get a Hint</button>
+        </div>
+        <section>
+        <p id="instructions" class="lead">I am thinking of a number between 1 and 100  ...  you have five tries to guess it. Good luck!</p>
+        </section>
+        <div id="hints"></div>
+    </div>
    </div>
     &nbsp;
     &nbsp;
@@ -29,5 +37,8 @@
     &nbsp;
       </div>
     </div>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/min/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/guessing_game.js"></script>
   </body>
 </html>
