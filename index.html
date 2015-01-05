@@ -18,17 +18,18 @@
       </header>
       <div class="pagination-centered">
       <form role="form" id="guessForm">
-          <input type="text" class="form control">  
+          <label id="guessInfo">Enter a number between 1 and 100: </label> <br>
+          <input type="text"  id="guess" class="form control">  
         <!---<div class="btn-toolbar pagination-centered"-->
             <div class="btn-toolbar">
-              <button type="button" class="sbutton embossed-link">Submit Guess</button>
+              <button type="submit" id="submitGuess" class="sbutton embossed-link">Submit Guess</button>
     </form>
-          <button type="submit" class="sbutton embossed-link">Get a Hint</button>
+          <button type="button" class="sbutton embossed-link">Reset Game</button>
         </div>
         <section>
         <p id="instructions" class="lead">I am thinking of a number between 1 and 100  ...  you have five tries to guess it. Good luck!</p>
         </section>
-        <div id="hints"></div>
+        <!--<div id="hints"></div> -->
     </div>
    </div>
     &nbsp;
@@ -38,7 +39,7 @@
       </div>
     </div>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/min/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/guessing_game.js"></script>
   </body>
 </html>
