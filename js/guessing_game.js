@@ -7,9 +7,12 @@ let guessedNums = [];
 form.addEventListener("submit", guessEntered);
 document.getElementById("reset").addEventListener("click", playGame);
 
+function setElementContentsById(elementId, newValue = "") {
+  document.getElementById(elementId).textContent = newValue;
+}
+
 function checkGuess(guessedNum) {
   const guessList = document.getElementById("guessList");
-  const hintElement = document.getElementById("hotOrCold");
   const listElement = document.createElement("li");
   if (guessedNum == targetNum) {
     return true;
@@ -18,10 +21,10 @@ function checkGuess(guessedNum) {
       `You guessed  ${guessedNum} but it was too low. Guess higher!`
     );
     guessList.appendChild(listElement);
-    hintElement.textContent = "You are cold. Guess higher.";
+    setElementContentsById("hotOrCold", "You are cold. Guess higher.");
     return false;
   } else {
-    hintElement.textContent = "You are hot. Guess lower.";
+    setElementContentsById("hotOrCold", "You are hot. Guess lower.");
     listElement.append(
       `You guessed  ${guessedNum} but it was too high. Guess lower!`
     );
@@ -33,47 +36,50 @@ function checkGuess(guessedNum) {
 function guessEntered(event) {
   const guessInput = document.getElementById("guess");
   const currentGuess = Number(guessInput.value);
-  const hintElement = document.getElementById("hotOrCold");
   guessInput.value = "";
   event.preventDefault();
   remainingGuesses -= 1;
   guessedNums.push(currentGuess);
   if (currentGuess !== targetNum) {
     if (remainingGuesses === 0) {
-      document.getElementById(
-        "instructions"
-      ).textContent = `Game over. :( The number was ${targetNum}.`;
+      setElementContentsById(
+        "instructions",
+        `Game over. :( The number was ${targetNum}.`
+      );
       document.getElementById("submitGuess").disabled = true;
       guessInput.disabled = true;
-      hintElement.textContent = "";
+      setElementContentsById("hotOrCold");
     } else {
       checkGuess(currentGuess);
-      document.getElementById(
-        "instructions"
-      ).textContent = `You have ${remainingGuesses} guesses remaining.`;
+      setElementContentsById(
+        "instructions",
+        `You have ${remainingGuesses} guesses remaining.`
+      );
     }
   } else {
     document.getElementsByTagName("body")[0].style.backgroundImage =
       "url('images/confetti.jpg')";
-    hintElement.textContent = "Good job! You guessed the number.";
+    setElementContentsById("hotOrCold", "Good job! You guessed the number.");
     document.getElementById("submitGuess").disabled = true;
     guessInput.disabled = true;
-    document.getElementById("guessList").textContent = "";
-    document.getElementById("instructions").textContent = "";
+    setElementContentsById("guessList");
+    setElementContentsById("instructions");
   }
 }
 
 function playGame() {
   const guessInput = document.getElementById("guess");
-  guessInput.value = "";
-  document.getElementById("hotOrCold").textContent = "";
-  document.getElementById("guessList").textContent = "";
+  setElementContentsById("guess");
+  setElementContentsById("hotOrCold");
+  setElementContentsById("guessList");
   document.getElementById("submitGuess").disabled = false;
   guessInput.disabled = false;
-  document.getElementById("instructions").textContent =
-    "I am thinking of a number between 1 and 100  ...  you have five tries to guess it. Good luck!";
-  guessedNums = []; //reset guesses array
-  document.getElementById("guessList").textContent = "";
+  setElementContentsById(
+    "instructions",
+    "I am thinking of a number between 1 and 100  ...  you have five tries to guess it. Good luck!"
+  );
+  setElementContentsById("guessList");
+  guessedNums = [];
   targetNum = Math.floor(Math.random() * 100 + 1);
   console.log(targetNum);
   remainingGuesses = MAX_GUESSES;
