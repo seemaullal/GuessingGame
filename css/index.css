@@ -5,4 +5,18 @@ body {
     rgba(157, 238, 199, 1) 40%,
     rgba(151, 139, 241, 1) 100%
   );
+  margin: 20px 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#guessForm {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

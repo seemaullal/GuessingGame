@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <body>
-<html>
-  <head>
-    <title>Guessing Game</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
-    <link href="css/index.css" rel="stylesheet" media="screen">
-  </head>
-  <body>
-    <div class="container text-center">
-      <header class="page-header">
-        <h3>Guessing Game</h3>
-      </header>
-      <div class="pagination-centered">
-      <form role="form" id="guessForm">
-          <label id="guessInfo">Enter a number between 1 and 100: </label> <br>
-          <input type="text"  id="guess" class="form control">  
-        <!---<div class="btn-toolbar pagination-centered"-->
-            <div class="btn-toolbar">
-              <button type="submit" id="submitGuess" class="sbutton embossed-link">Submit Guess</button>
-    </form>
-          <button type="button" id="reset" class="sbutton embossed-link">Reset Game</button>
+  <html>
+    <head>
+      <title>Guessing Game</title>
+      <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+      <meta content="utf-8" http-equiv="encoding" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link href="css/index.css" rel="stylesheet" media="screen" />
+    </head>
+    <body>
+      <div>
+        <div class="container">
+          <h3>Guessing Game</h3>
+          <form id="guessForm">
+            <div>
+              <p id="guessInfo">Enter a number between 1 and 100:</p>
+            </div>
+
+            <br />
+            <div><input type="text" id="guess" /></div>
+
+            <div>
+              <button type="submit" id="submitGuess" class="btn btn-success">
+                Submit Guess
+              </button>
+              <button type="button" id="reset" class="btn btn-light">
+                Reset Game
+              </button>
+            </div>
+          </form>
+          <p id="instructions">
+            I am thinking of a number between 1 and 100 ... you have five tries
+            to guess it. Good luck!
+          </p>
+          <p id="hotOrCold"></p>
+          <ul id="guessList"></ul>
         </div>
-        <p id="instructions" class="lead">I am thinking of a number between 1 and 100  ...  you have five tries to guess it. Good luck!</p>
-       <p id="hotOrCold" class="lead"></p>
-      <ul class="list-unstyled" id='guessList'></ul>
-        <!--<div id="hints"></div> -->
-   </div>
-    &nbsp;
-    &nbsp;
-    &nbsp;
-    &nbsp;
       </div>
-    </div>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/guessing_game.js"></script>
-  </body>
-</html>
+      &nbsp; &nbsp; &nbsp; &nbsp;
+      <script type="text/javascript" src="js/guessing_game.js"></script>
+    </body>
+  </html>
+</body>

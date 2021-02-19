@@ -1,1 +1,1 @@
-Guessing Game created using Javascript, jQuery, CSS, and HTML.
+Guessing Game created using Javascript, CSS, and HTML.
